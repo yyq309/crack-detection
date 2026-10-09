@@ -1,0 +1,235 @@
+{
+  "base_test": {
+    "n": 1134,
+    "tp": 555,
+    "fn": 12,
+    "tn": 561,
+    "fp": 6,
+    "recall": 0.9788,
+    "specificity": 0.9894,
+    "balanced_accuracy": 0.9841
+  },
+  "stone_site_holdout": {
+    "n": 21,
+    "tp": 2,
+    "fn": 5,
+    "tn": 14,
+    "fp": 0,
+    "recall": 0.2857,
+    "specificity": 1.0,
+    "balanced_accuracy": 0.6429
+  },
+  "chambord_test": {
+    "n": 92,
+    "tp": 0,
+    "fn": 0,
+    "tn": 92,
+    "fp": 0,
+    "recall": 0.0,
+    "specificity": 1.0,
+    "balanced_accuracy": 0.5
+  },
+  "real_23_manual": {
+    "n": 23,
+    "tp": 13,
+    "fn": 1,
+    "tn": 6,
+    "fp": 3,
+    "recall": 0.9286,
+    "specificity": 0.6667,
+    "balanced_accuracy": 0.7976
+  },
+  "real_23_manifest_intent": {
+    "n": 23,
+    "tp": 12,
+    "fn": 1,
+    "tn": 6,
+    "fp": 4,
+    "recall": 0.9231,
+    "specificity": 0.6,
+    "balanced_accuracy": 0.7615
+  },
+  "real_23_predictions": {
+    "C_brick_1.jpg": {
+      "hits": 5,
+      "peak": 0.87935,
+      "windows": 84,
+      "scale": 1024,
+      "predicted_crack": true
+    },
+    "C_pave_1.jpg": {
+      "hits": 88,
+      "peak": 0.99641,
+      "windows": 140,
+      "scale": 1024,
+      "predicted_crack": true
+    },
+    "C_road_1.jpg": {
+      "hits": 11,
+      "peak": 0.99535,
+      "windows": 18,
+      "scale": 512,
+      "predicted_crack": true
+    },
+    "C_wall_1.jpg": {
+      "hits": 92,
+      "peak": 0.99959,
+      "windows": 140,
+      "scale": 1024,
+      "predicted_crack": true
+    },
+    "N_asph_1.jpg": {
+      "hits": 0,
+      "peak": 0.02735,
+      "windows": 12,
+      "scale": 512,
+      "predicted_crack": false
+    },
+    "N_conc2.jpg": {
+      "hits": 0,
+      "peak": 0.03598,
+      "windows": 196,
+      "scale": 1024,
+      "predicted_crack": false
+    },
+    "N_ph_pave.jpg": {
+      "hits": 77,
+      "peak": 0.99994,
+      "windows": 84,
+      "scale": 1024,
+      "predicted_crack": true
+    },
+    "N_ph_plas.jpg": {
+      "hits": 0,
+      "peak": 0.03598,
+      "windows": 196,
+      "scale": 1024,
+      "predicted_crack": false
+    },
+    "N_tile_1.jpg": {
+      "hits": 0,
+      "peak": 0.00914,
+      "windows": 196,
+      "scale": 1024,
+      "predicted_crack": false
+    },
+    "brdg_2.jpg": {
+      "hits": 0,
+      "peak": 0.58788,
+      "windows": 126,
+      "scale": 1024,
+      "predicted_crack": false
+    },
+    "cflr_2.jpg": {
+      "hits": 71,
+      "peak": 1.0,
+      "windows": 84,
+      "scale": 1024,
+      "predicted_crack": true
+    },
+    "cpav_1.jpg": {
+      "hits": 7,
+      "peak": 0.94008,
+      "windows": 126,
+      "scale": 1024,
+      "predicted_crack": true
+    },
+    "ncpav_1.jpg": {
+      "hits": 24,
+      "peak": 0.99053,
+      "windows": 24,
+      "scale": 512,
+      "predicted_crack": true
+    },
+    "ncpav_2.jpg": {
+      "hits": 0,
+      "peak": 0.02795,
+      "windows": 140,
+      "scale": 1024,
+      "predicted_crack": false
+    },
+    "nretw_1.jpg": {
+      "hits": 96,
+      "peak": 0.99978,
+      "windows": 140,
+      "scale": 1024,
+      "predicted_crack": true
+    },
+    "nretw_2.jpg": {
+      "hits": 3,
+      "peak": 0.84422,
+      "windows": 15,
+      "scale": 512,
+      "predicted_crack": true
+    },
+    "nroad_1.jpg": {
+      "hits": 0,
+      "peak": 0.01452,
+      "windows": 84,
+      "scale": 1024,
+      "predicted_crack": false
+    },
+    "plas_1.jpg": {
+      "hits": 13,
+      "peak": 0.97357,
+      "windows": 84,
+      "scale": 1024,
+      "predicted_crack": true
+    },
+    "retw_1.jpg": {
+      "hits": 5,
+      "peak": 0.73583,
+      "windows": 140,
+      "scale": 1024,
+      "predicted_crack": true
+    },
+    "retw_2.jpg": {
+      "hits": 31,
+      "peak": 0.99994,
+      "windows": 140,
+      "scale": 1024,
+      "predicted_crack": true
+    },
+    "road_1.jpg": {
+      "hits": 11,
+      "peak": 0.95676,
+      "windows": 126,
+      "scale": 1024,
+      "predicted_crack": true
+    },
+    "walk_1.jpg": {
+      "hits": 22,
+      "peak": 0.97116,
+      "windows": 70,
+      "scale": 768,
+      "predicted_crack": true
+    },
+    "walk_2.jpg": {
+      "hits": 26,
+      "peak": 0.95461,
+      "windows": 140,
+      "scale": 1024,
+      "predicted_crack": true
+    }
+  },
+  "base_val": {
+    "n": 1130,
+    "tp": 552,
+    "fn": 13,
+    "tn": 560,
+    "fp": 5,
+    "recall": 0.977,
+    "specificity": 0.9912,
+    "balanced_accuracy": 0.9841
+  },
+  "joint_val": {
+    "n": 33,
+    "tp": 0,
+    "fn": 0,
+    "tn": 33,
+    "fp": 0,
+    "recall": 0.0,
+    "specificity": 1.0,
+    "balanced_accuracy": 0.5
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "accuracy": 0.9903,
+  "precision_crack": 0.9929,
+  "recall_crack": 0.9877,
+  "f1_crack": 0.9903,
+  "n_test": 1134,
+  "classes": [
+    "crack",
+    "nocrack"
+  ],
+  "confusion_matrix": [
+    [
+      560,
+      7
+    ],
+    [
+      4,
+      563
+    ]
+  ],
+  "val_acc_at_train": 0.988495575221239
+}
