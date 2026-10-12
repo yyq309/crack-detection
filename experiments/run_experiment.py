@@ -77,7 +77,7 @@ class ImageRecords(Dataset):
             img = source.convert("RGB")
         if self.training and record.source == "local_joint":
             tf = self.large
-        elif self.training and record.source == "uk_crack":
+        elif self.training and record.source in {"uk_crack", "dam_crack"}:
             tf = self.mask_cropped_positive
         else:
             tf = self.standard if self.training else self.eval_tf
@@ -96,6 +96,7 @@ def build_records(root: Path):
         train += paths(root, f"crack_ch/naillac/{cls}/*.jpg", label, f"stone_{cls}")
     train += paths(root, "local_joints/*.jpg", 0, "local_joint")
     train += paths(root, "mined_local/*.jpg", 0, "mined_joint")
+    train += paths(root, "damcrack/train/crack/*.jpg", 1, "dam_crack")
     chambord = paths(root, "chambord/train/*.png", 0, "chambord")
     train += [r for r in chambord if int(r.path.stem) % 10 != 0]
     val_joint = [r for r in chambord if int(r.path.stem) % 10 == 0]
@@ -216,6 +217,8 @@ def main() -> None:
     parser.add_argument("--epoch-samples", type=int, default=6000)
     parser.add_argument("--lr", type=float, default=2e-5)
     parser.add_argument("--start-checkpoint", type=Path)
+    parser.add_argument("--exclude-mined", action="store_true",
+                        help="Omit automatically mined local joint crops from training")
     parser.add_argument("--skip-baseline", action="store_true")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
@@ -231,6 +234,8 @@ def main() -> None:
         raise ValueError(f"Unexpected class order: {checkpoint['classes']}")
     model = create_model(checkpoint).to(device)
     train, val_base, val_joint, tests = build_records(args.data)
+    if args.exclude_mined:
+        train = [record for record in train if record.source != "mined_joint"]
     by_source = defaultdict(int)
     for r in train:
         by_source[r.source] += 1
@@ -258,6 +263,9 @@ def main() -> None:
             "brick_nocrack": .13, "stone_crack": .05, "stone_nocrack": .07,
             "chambord": .18, "local_joint": .02,
         }
+    if by_source["dam_crack"]:
+        source_share["base_crack"] -= .10
+        source_share["dam_crack"] = .10
     weights = [source_share[r.source] / by_source[r.source] for r in train]
     sampler = WeightedRandomSampler(weights, num_samples=args.epoch_samples, replacement=True)
     loader = DataLoader(ImageRecords(train, True), batch_size=args.batch, sampler=sampler,
